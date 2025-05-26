@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+ <nav class="navbar">
+    <div class="logo">Therapist Vijaya Jadhav</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-btn">Home</a></li>
+      <li><a href="services.html" class="nav-btn">Services</a></li>
+      <li><a href="about.html" class="nav-btn">About</a></li>
+      <li><a href="contact.html" class="nav-btn">Contact</a></li>
+    </ul>
+  </nav>
+  
+<section class="contact-container">
+  <!-- Left Info Section -->
+  <div class="contact-left">
+    <h3 id="typing-header"></h3>
+    <div id="typing-text" class="typing-text"></div>
+
+    <!-- Hidden original full info, will show after typing -->
+    <div id="full-info" style="display:none;">
+      <h3>Get in Touch 💬</h3>
+      <p>We’d love to hear from you! Reach out for appointments, questions, or just to say hello.</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:Vijaya.Jadhav.151075@gmail.com">Vijaya.Jadhav.151075@gmail.com</a></p>
+      <p>📞 <strong>Phone:</strong> <a href="tel:+918692828066">(+91) 86928 28066</a> / <a href="tel:+918652428280">86524 28280</a></p>
+      <p>📍 <strong>Address:</strong> Sant Rajinder Singh Ashram, Prabhakar Krishanati Patil Marg, Sector 5, Ghansoli, Navi Mumbai, Maharashtra 400701</p>
+      <a href="https://www.google.com/maps/place/Sant+Rajinder+Singh+Ashram/@19.1129607,72.999423,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c0cedf2d7201:0x66a459f556bfd7ee!8m2!3d19.1129607!4d73.0019979!16s%2Fg%2F11bwp750z2?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn map-btn">See on Map</a>
+    </div>
+  </div>
+
+  <!-- Right Form Section -->
+  <div class="contact-right">
+    <div class="contact-form-card">
+      <h2>Contact Us</h2>
+      <form id="contactForm" action="https://formsubmit.co/knack092020@gmail.com" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="tel" name="phone" placeholder="Your Phone Number" required />
+        <select name="service" required style="color: #757575">
+          <option value="" disabled selected>Select a Service</option>
+          <option value="Acupressure Therapy">Acupressure Therapy</option>
+          <option value="Needling Therapy">Needling Therapy</option>
+          <option value="Moxa Therapy">Moxa Therapy</option>
+          <option value="Cupping Therapy">Cupping Therapy</option>
+          <option value="Reflexology">Reflexology</option>
+          <option value="Shiatsu Therapy">Shiatsu Therapy</option>
+        </select>
+        <textarea name="message" placeholder="Additional Information"></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <div id="formMessage"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>
+    <a href="mailto:Vijaya.Jadhav.151075@gmail.com">Vijaya.Jadhav.151075@gmail.com</a> | 
+    (+91) 8692828066 / 8652428280 | 
+    Sant Rajinder Singh Ashram, Ghansoli, Navi Mumbai | 
+    &copy; 2025 Samiksha Shinde. All rights reserved.
+  </p>
+</footer>
+
+<script>
+  // Typing effect code (unchanged)
+  const headerText = "Get in Touch 💬";
+  const bodyLines = [
+    "We’d love to hear from you! Reach out for appointments, questions, or just to say hello.",
+    "📧 Email: Vijaya.Jadhav.151075@gmail.com",
+    "📞 Phone: (+91) 86928 28066 / 86524 28280",
+    "📍 Address: Sant Rajinder Singh Ashram, Ghansoli, Navi Mumbai",
+  ];
+
+  const headerEl = document.getElementById('typing-header');
+  const textEl = document.getElementById('typing-text');
+  const fullInfo = document.getElementById('full-info');
+
+  function typeLine(element, text, delay = 15) {
+    return new Promise(resolve => {
+      let i = 0;
+      function typeChar() {
+        if (i < text.length) {
+          element.textContent += text[i];
+          i++;
+          setTimeout(typeChar, delay);
+        } else {
+          resolve();
+        }
+      }
+      typeChar();
+    });
+  }
+
+  async function startTyping() {
+    headerEl.textContent = "";
+    textEl.textContent = "";
+
+    await typeLine(headerEl, headerText);
+    await new Promise(r => setTimeout(r, 700));
+
+    for (let line of bodyLines) {
+      await typeLine(textEl, line);
+      textEl.textContent += "\n\n";
+      await new Promise(r => setTimeout(r, 600));
+    }
+
+    headerEl.style.display = 'none';
+    textEl.style.display = 'none';
+    fullInfo.style.display = 'block';
+  }
+
+  window.onload = () => {
+    startTyping();
+  };
+</script>
+
+
+</body>
+</html>
