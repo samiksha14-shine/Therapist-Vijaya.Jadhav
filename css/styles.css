@@ -52,12 +52,21 @@ img {
   z-index: 1000;
 }
 
+/* Logo */
 .logo {
-  font-size: 1.6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
-  color: #222;
+  font-size: 1.8rem;
+  color: #2f4858; /* dark tealish, calming color */
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  user-select: none;
+  cursor: default;
+  white-space: nowrap; /* keep it in one line */
 }
 
+
+/* Navigation Links */
 .nav-links {
   display: flex;
   list-style: none;
@@ -83,6 +92,46 @@ img {
   background: #51667a;
   color: #fff;
 }
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #222;
+  transition: 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #f0e9db;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+    border-left: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -143,6 +192,33 @@ img {
 .welcome-message .btn + .btn:hover {
   background-color: #51667a;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .welcome-message {
+    margin: 3rem 1rem;
+    padding: 2rem 1.2rem;
+  }
+
+  .welcome-message h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-message p {
+    font-size: 1rem;
+  }
+
+  .welcome-message .btn {
+    display: block;
+    width: 100%;
+    margin: 0.8rem 0;
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+
+  .welcome-message .btn + .btn {
+    margin-left: 0;
+  }
 }
 
 .service-cards {
@@ -282,6 +358,40 @@ img {
 }
 
 
+@media (max-width: 768px) {
+  .services {
+    padding: 1.5rem 1rem; /* reduce padding on smaller screens */
+    margin: 3rem 1rem; /* reduce margin and side spacing */
+    max-width: 95vw; /* fit smaller screens */
+  }
+
+  .services h2 {
+    font-size: 2.2rem; /* smaller heading */
+    width: 90%; /* optional: keep some breathing space */
+    margin: 0 auto 1rem; /* center and add spacing below */
+  }
+
+  .services h2::after {
+    width: 70px; /* smaller underline */
+    height: 3px;
+    margin: 0.5rem auto 0;
+  }
+
+  .services p {
+    font-size: 1rem; /* smaller paragraph text */
+    max-width: 90vw; /* fit inside screen nicely */
+    margin-bottom: 2rem;
+    color: #51667a;
+    line-height: 1.4;
+  }
+
+  .service-cards {
+    gap: 1rem; /* smaller gap between cards */
+    justify-content: center;
+  }
+}
+
+
 /* About Page */
 .about {
   display: flex;
@@ -404,11 +514,19 @@ img {
   object-fit: contain;
 }
 
-/* Responsive adjustments */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .about {
     flex-direction: column;
-    align-items: center;
+    max-width: 95vw;
+    padding: 1.5rem 1rem;
+    margin: 3rem auto 2rem;
+  }
+
+  .about img {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 10px rgba(81, 102, 122, 0.25);
   }
 
   .bio {
@@ -416,13 +534,49 @@ img {
     text-align: center;
   }
 
-  .videos {
-    flex-direction: column;
-    align-items: center;
+  .bio h2 {
+    font-size: 1.6rem;
   }
 
-  .videos video {
+  .bio p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Therapist Videos */
+  .therapist-videos {
+    padding: 2rem 1rem;
+  }
+
+  .therapist-videos h3 {
+    font-size: 1.7rem;
+  }
+
+  .video-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .video-carousel {
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  #carousel-video,
+  #carousel-image {
+    width: 100%;
     max-width: 100%;
+    max-height: 300px;
   }
 }
 
@@ -547,11 +701,48 @@ img {
   .contact-container {
     flex-direction: column;
   }
+}
 
-  .arrow-gif {
-    display: none;
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 1rem 1rem;
+    gap: 2rem;
+    max-width: 95vw;
+    margin: 2rem auto;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .contact-left {
+    padding: 1.5rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .contact-left h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-left p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-left a.btn.map-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 6px;
   }
 }
+
 
 /* Google Map */
 .location {
@@ -599,6 +790,27 @@ img {
 
 .map-btn:hover {
   background-color: #3a4a5a;
+}
+
+@media (max-width: 768px) {
+  .location {
+    padding: 2rem 1rem;
+  }
+
+  .location h2 {
+    font-size: 1.5rem;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .map-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }
 
 
@@ -744,19 +956,18 @@ img {
 .footer-content {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;       /* prevent wrapping on all screens */
   max-width: 1200px;
-  margin: auto;
+  margin: 1rem 4rem 2rem 4rem; /* keep your margins */
   gap: 2rem;
-  margin-left: 4rem;
-  margin-top: 1rem;
+  overflow-x: auto;        /* allow horizontal scroll if needed */
 }
 
 .footer-section {
-  flex: 1 1 250px;
+  flex: 0 0 auto;          /* prevent shrinking */
+  width: 250px;            /* fixed width as you had */
   margin-bottom: 2rem;
 }
-
 .footer-section h3 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
@@ -794,4 +1005,6 @@ img {
   padding-top: 1rem;
   font-size: 0.95rem;
   color: #51667a;
-}
+}  
+
+

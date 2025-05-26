@@ -7,22 +7,32 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
- <nav class="navbar">
-    <div class="logo">Therapist Vijaya Jadhav</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-btn">Home</a></li>
-      <li><a href="services.html" class="nav-btn">Services</a></li>
-      <li><a href="about.html" class="nav-btn">About</a></li>
-      <li><a href="contact.html" class="nav-btn">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <div class="logo">Therapist Vijaya Jadhav</div>
+
+  <!-- Hamburger button -->
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Navigation links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-btn">Home</a></li>
+    <li><a href="services.html" class="nav-btn">Services</a></li>
+    <li><a href="about.html" class="nav-btn">About</a></li>
+    <li><a href="contact.html" class="nav-btn">Contact</a></li>
+  </ul>
+</nav>
+
 
   <section class="about">
     <img src="images/photo.jpeg" alt="Therapist" />
     <div class="bio">
       <h2>Therapist Vijaya Jadhav</h2>
       <p><i>"I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability to heal and restore balance. Using a variety of traditional and modern techniques, I work with each client to create a personalized treatment plan that promotes relaxation, pain relief, and overall wellness. My approach is rooted in professional training and certification, ensuring safe and effective care for every individual seeking natural healing and rejuvenation."</i></p>
-      <a href="tel:+1234567890" class="btn">Contact Therapist</a>
+      <a href="contact.html" class="btn">Contact Therapist</a>
     </div>
   </section>
 
@@ -51,6 +61,14 @@
     &copy; 2025 Samiksha Shinde. All rights reserved.
   </p>
 </footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
  <script src="js/script.js"></script>
 </body>

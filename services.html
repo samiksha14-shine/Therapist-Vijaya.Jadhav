@@ -6,16 +6,27 @@
   <title>Our Services</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="logo">Therapist Vijaya Jadhav</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-btn">Home</a></li>
-      <li><a href="services.html" class="nav-btn">Services</a></li>
-      <li><a href="about.html" class="nav-btn">About</a></li>
-      <li><a href="contact.html" class="nav-btn">Contact</a></li>
-    </ul>
-  </nav>
+ <nav class="navbar">
+  <div class="logo">Therapist Vijaya Jadhav</div>
+
+  <!-- Hamburger button -->
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Navigation links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-btn">Home</a></li>
+    <li><a href="services.html" class="nav-btn">Services</a></li>
+    <li><a href="about.html" class="nav-btn">About</a></li>
+    <li><a href="contact.html" class="nav-btn">Contact</a></li>
+  </ul>
+</nav>
+
 
   <section class="services">
      <h2>Our Therapy Services</h2>
@@ -112,6 +123,15 @@
     &copy; 2025 Samiksha Shinde. All rights reserved.
   </p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
 </body>
 </html>

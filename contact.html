@@ -8,14 +8,23 @@
 </head>
 <body>
  <nav class="navbar">
-    <div class="logo">Therapist Vijaya Jadhav</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-btn">Home</a></li>
-      <li><a href="services.html" class="nav-btn">Services</a></li>
-      <li><a href="about.html" class="nav-btn">About</a></li>
-      <li><a href="contact.html" class="nav-btn">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="logo">Therapist Vijaya Jadhav</div>
+
+  <!-- Hamburger button -->
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Navigation links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-btn">Home</a></li>
+    <li><a href="services.html" class="nav-btn">Services</a></li>
+    <li><a href="about.html" class="nav-btn">About</a></li>
+    <li><a href="contact.html" class="nav-btn">Contact</a></li>
+  </ul>
+</nav>
   
 <section class="contact-container">
   <!-- Left Info Section -->
@@ -75,7 +84,7 @@
     "We’d love to hear from you! Reach out for appointments, questions, or just to say hello.",
     "📧 Email: Vijaya.Jadhav.151075@gmail.com",
     "📞 Phone: (+91) 86928 28066 / 86524 28280",
-    "📍 Address: Sant Rajinder Singh Ashram, Ghansoli, Navi Mumbai",
+    "📍 Address: Sant Rajinder Singh Ashram, Prabhakar Krishanati Patil Marg, Sector 5, Ghansoli, Navi Mumbai, Maharashtra 400701",
   ];
 
   const headerEl = document.getElementById('typing-header');
@@ -119,6 +128,15 @@
   window.onload = () => {
     startTyping();
   };
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 </script>
 
 
