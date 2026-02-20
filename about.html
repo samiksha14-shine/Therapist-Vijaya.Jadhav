@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Therapist Vijaya Jadhav</title>
+<title>About | Vijaya Jadhav</title>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -16,7 +16,7 @@
 <!-- NAVIGATION -->
 <nav class="navbar">
   <div class="container nav-inner">
-    <div class="logo">Therapist Vijaya Jadhav</div>
+    <div class="logo">Vijaya Jadhav</div>
     <div class="mobile-menu" id="mobileMenu">&#9776;</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -32,7 +32,7 @@
   <div class="container about-wrapper">
     <img src="images/photo.jpeg" alt="Therapist Vijaya Jadhav">
     <div>
-      <h2 class="section-title">Therapist Vijaya Jadhav</h2>
+      <h2 class="section-title">Vijaya Jadhav</h2>
       <p>
         "I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability 
         to heal and restore balance. Using a variety of traditional and modern techniques, I work with each 
@@ -40,6 +40,7 @@
         My approach is rooted in professional training and certification, ensuring safe and effective care 
         for every individual seeking natural healing and rejuvenation."
       </p>
+      <p>.</p>
       <a href="contact.html" class="btn">Contact Therapist</a>
     </div>
   </div>
@@ -54,12 +55,19 @@
     </p>
 
     <div class="video-slider">
-      <button class="slider-btn left" onclick="prevVideo()">‹</button>
 
-      <video id="sliderVideo" controls></video>
+  <button class="slider-btn left" onclick="prevVideo()">‹</button>
 
-      <button class="slider-btn right" onclick="nextVideo()">›</button>
-    </div>
+  <video id="sliderVideo" controls>
+    <source src="videos/therapy1.mp4" type="video/mp4">
+    <source src="videos/therapy2.mp4" type="video/mp4">
+    <source src="videos/therapy3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button class="slider-btn right" onclick="nextVideo()">›</button>
+
+</div>
 
   </div>
 </section>

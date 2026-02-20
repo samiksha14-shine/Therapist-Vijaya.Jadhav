@@ -28,28 +28,28 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ===============================
      VIDEO SLIDER (ABOUT PAGE)
   =============================== */
-  const sliderVideo = document.getElementById("sliderVideo");
+const sliderVideo = document.getElementById("sliderVideo");
 
-  if (sliderVideo) {
-    const videos = [
-      "videos/therapy1.mp4",
-      "videos/therapy2.mp4",
-      "videos/therapy3.mp4"
-    ];
+if (sliderVideo) {
 
-    let currentVideo = 0;
+  const videos = [
+    "videos/therapy1.mp4",
+    "videos/therapy2.mp4",
+    "videos/therapy3.mp4"
+  ];
+
+  let currentVideo = 0;
+
+  window.nextVideo = function () {
+    currentVideo = (currentVideo + 1) % videos.length;
     sliderVideo.src = videos[currentVideo];
+  };
 
-    window.nextVideo = function () {
-      currentVideo = (currentVideo + 1) % videos.length;
-      sliderVideo.src = videos[currentVideo];
-    };
-
-    window.prevVideo = function () {
-      currentVideo = (currentVideo - 1 + videos.length) % videos.length;
-      sliderVideo.src = videos[currentVideo];
-    };
-  }
+  window.prevVideo = function () {
+    currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+    sliderVideo.src = videos[currentVideo];
+  };
+}
 
   /* ===============================
      CONTACT FORM SUBMISSION
