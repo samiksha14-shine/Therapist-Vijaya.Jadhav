@@ -83,31 +83,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (form) {
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      const formData = new FormData(form);
+    const formData = new FormData(form);
 
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: formData
+      });
 
-        const result = await response.json();
+      const result = await response.json();
 
-        if (result.success) {
-          showPopup("Your appointment request has been sent successfully!", "success");
-          form.reset();
-        } else {
-          showPopup("Something went wrong. Please try again.", "error");
-        }
-      } catch (error) {
-        showPopup("Network error. Please try again later.", "error");
+      if (result.success) {
+        showPopup("Your appointment request has been sent successfully!", "success");
+        form.reset();
+      } else {
+        showPopup("Something went wrong. Please try again.", "error");
       }
-    });
-  }
 
+    } catch (error) {
+      showPopup("Network error. Please try again later.", "error");
+    }
+  });
+}
   /* ===============================
      TYPEWRITER EFFECT
   =============================== */
