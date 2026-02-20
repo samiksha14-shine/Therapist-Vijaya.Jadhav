@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About | Therapist Vijaya Jadhav</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-  <div class="container nav-inner">
-    <div class="logo">Therapist Vijaya Jadhav</div>
-    <div class="mobile-menu" id="mobileMenu">&#9776;</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="btn">Book Appointment</a></li>
-    </ul>
-  </div>
+<div class="container nav-inner">
+<div class="logo">Therapist Vijaya Jadhav</div>
+<div class="mobile-menu" id="mobileMenu">&#9776;</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html" class="btn">Book Appointment</a></li>
+</ul>
+</div>
 </nav>
 
 <section>
-  <div class="container about-wrapper">
-    <img src="images/photo.jpeg" alt="Therapist">
-    <div>
-      <h2 class="section-title">Therapist Vijaya Jadhav</h2>
-      <p>"I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability to heal and restore balance. Using a variety of traditional and modern techniques, I work with each client to create a personalized treatment plan that promotes relaxation, pain relief, and overall wellness."</p>
-    </div>
-  </div>
+<div class="container about-wrapper">
+<img src="images/photo.jpeg">
+<div>
+<h2 class="section-title">Therapist Vijaya Jadhav</h2>
+<p>I am a licensed holistic therapy practitioner dedicated to restoring balance and wellness.</p>
+</div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2 class="section-title">Healing Moments</h2>
-    <div class="video-grid">
-      <video src="videos/therapy1.mp4" controls></video>
-      <video src="videos/therapy2.mp4" controls></video>
-      <video src="videos/therapy3.mp4" controls></video>
-    </div>
-  </div>
-</section>
+<div class="container">
+<h2 class="section-title">Healing Moments</h2>
 
-<footer>
-  <div class="container">
-    <p>© 2025 Vijaya Jadhav</p>
-  </div>
-</footer>
+<div class="video-slider">
+<button class="slider-btn left" onclick="prevVideo()">‹</button>
+<video id="sliderVideo" controls></video>
+<button class="slider-btn right" onclick="nextVideo()">›</button>
+</div>
+
+</div>
+</section>
 
 <script src="js/script.js"></script>
 </body>
