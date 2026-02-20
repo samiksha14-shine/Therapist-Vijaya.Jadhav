@@ -55,11 +55,21 @@ if (sliderVideo) {
      CONTACT FORM SUBMISSION
   =============================== */
 // MAKE CLOSE POPUP GLOBAL
-function closePopup() {
-  const popup = document.getElementById("popupModal");
-  if (popup) {
+const popup = document.getElementById("popupModal");
+const popupCloseBtn = document.getElementById("popupCloseBtn");
+
+if (popupCloseBtn) {
+  popupCloseBtn.addEventListener("click", function () {
     popup.style.display = "none";
-  }
+  });
+}
+
+if (popup) {
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
