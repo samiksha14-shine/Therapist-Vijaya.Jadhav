@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
+<title>About | Therapist Vijaya Jadhav</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
@@ -11,40 +13,55 @@
 
 <body>
 
+<!-- NAVIGATION -->
 <nav class="navbar">
-<div class="container nav-inner">
-<div class="logo">Therapist Vijaya Jadhav</div>
-<div class="mobile-menu" id="mobileMenu">&#9776;</div>
-<ul class="nav-links" id="navLinks">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html" class="btn">Book Appointment</a></li>
-</ul>
-</div>
+  <div class="container nav-inner">
+    <div class="logo">Therapist Vijaya Jadhav</div>
+    <div class="mobile-menu" id="mobileMenu">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="services.html">💆 Services</a></li>
+      <li><a href="about.html">👩 About</a></li>
+      <li><a href="contact.html" class="btn">📞 Book Appointment</a></li>
+    </ul>
+  </div>
 </nav>
 
+<!-- ABOUT SECTION -->
 <section>
-<div class="container about-wrapper">
-<img src="images/photo.jpeg">
-<div>
-<h2 class="section-title">Therapist Vijaya Jadhav</h2>
-<p>I am a licensed holistic therapy practitioner dedicated to restoring balance and wellness.</p>
-</div>
-</div>
+  <div class="container about-wrapper">
+    <img src="images/photo.jpeg" alt="Therapist Vijaya Jadhav">
+    <div>
+      <h2 class="section-title">Therapist Vijaya Jadhav</h2>
+      <p>
+        "I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability 
+        to heal and restore balance. Using a variety of traditional and modern techniques, I work with each 
+        client to create a personalized treatment plan that promotes relaxation, pain relief, and overall wellness. 
+        My approach is rooted in professional training and certification, ensuring safe and effective care 
+        for every individual seeking natural healing and rejuvenation."
+      </p>
+      <a href="contact.html" class="btn">Contact Therapist</a>
+    </div>
+  </div>
 </section>
 
+<!-- HEALING MOMENTS -->
 <section>
-<div class="container">
-<h2 class="section-title">Healing Moments</h2>
+  <div class="container">
+    <h2 class="section-title">Healing Moments</h2>
+    <p class="section-subtitle">
+      Visual stories of therapy sessions that bring comfort, relief, and wellness to our clients.
+    </p>
 
-<div class="video-slider">
-<button class="slider-btn left" onclick="prevVideo()">‹</button>
-<video id="sliderVideo" controls></video>
-<button class="slider-btn right" onclick="nextVideo()">›</button>
-</div>
+    <div class="video-slider">
+      <button class="slider-btn left" onclick="prevVideo()">‹</button>
 
-</div>
+      <video id="sliderVideo" controls></video>
+
+      <button class="slider-btn right" onclick="nextVideo()">›</button>
+    </div>
+
+  </div>
 </section>
 
 <script src="js/script.js"></script>

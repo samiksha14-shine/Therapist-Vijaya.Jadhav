@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact</title>
+<title>Contact | Therapist Vijaya Jadhav</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
@@ -12,50 +14,76 @@
 <body>
 
 <nav class="navbar">
-<div class="container nav-inner">
-<div class="logo">Therapist Vijaya Jadhav</div>
-<div class="mobile-menu" id="mobileMenu">&#9776;</div>
-<ul class="nav-links" id="navLinks">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="about.html">About</a></li>
-</ul>
-</div>
+  <div class="container nav-inner">
+    <div class="logo">Therapist Vijaya Jadhav</div>
+    <div class="mobile-menu" id="mobileMenu">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="services.html">💆 Services</a></li>
+      <li><a href="about.html">👩 About</a></li>
+      <li><a href="contact.html" class="btn">📞 Book Appointment</a></li>
+    </ul>
+  </div>
 </nav>
 
 <section>
 <div class="container contact-wrapper">
 
-<div class="contact-info">
-<h2>Get in Touch</h2>
-<p>Email: Vijaya.Jadhav.151075@gmail.com</p>
-<p>Phone: (+91) 86928 28066</p>
-<iframe src="https://www.google.com/maps?q=Ghansoli,+Navi+Mumbai&output=embed"></iframe>
-</div>
+  <!-- RIGHT SIDE (FORM FIRST IN MOBILE) -->
+  <div class="contact-form">
 
-<div class="contact-form">
-<form id="contactForm">
-<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <h2>Contact Us</h2>
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
-<select name="service" required>
-<option value="">Select Service</option>
-<option>Acupressure Therapy</option>
-<option>Needling Therapy</option>
-<option>Moxa Therapy</option>
-<option>Cupping Therapy</option>
-<option>Reflexology</option>
-<option>Shiatsu Therapy</option>
-</select>
+      <input type="text" name="name" placeholder="Your Name" required>
 
-<textarea name="message" placeholder="Your Message"></textarea>
+      <input type="email" name="email" placeholder="Your Email" required>
 
-<button type="submit" class="btn">Submit</button>
-<p id="formMessage"></p>
-</form>
-</div>
+      <input type="tel" name="phone" placeholder="Your Phone Number" required>
+
+      <select name="service" required>
+        <option value="" disabled selected>Select a Service</option>
+        <option value="Acupressure Therapy">Acupressure Therapy</option>
+        <option value="Needling Therapy">Needling Therapy</option>
+        <option value="Moxa Therapy">Moxa Therapy</option>
+        <option value="Cupping Therapy">Cupping Therapy</option>
+        <option value="Reflexology">Reflexology</option>
+        <option value="Shiatsu Therapy">Shiatsu Therapy</option>
+      </select>
+
+      <textarea name="message" placeholder="Additional Information"></textarea>
+
+      <button type="submit" class="btn">Submit</button>
+      <p id="formMessage"></p>
+    </form>
+  </div>
+
+  <!-- LEFT SIDE -->
+  <div class="contact-info">
+    <h2 id="typing-header"></h2>
+    <div id="typing-text"></div>
+
+    <div id="full-info" style="display:none;">
+
+      <h3>Get in Touch</h3>
+
+      <p>We’d love to hear from you! Reach out for appointments, questions, or just to say hello.</p>
+
+      <p>📧 Vijaya.Jadhav.151075@gmail.com</p>
+
+      <p>📞 (+91) 86928 28066 / 86524 28280</p>
+
+      <p>📍 Sant Rajinder Singh Ashram, Prabhakar Krishanati Patil Marg, Sector 5, Ghansoli, Navi Mumbai, Maharashtra 400701</p>
+
+      <a href="https://www.google.com/maps/place/Sant+Rajinder+Singh+Ashram/" 
+         target="_blank" class="btn">
+         See on Map
+      </a>
+
+    </div>
+  </div>
 
 </div>
 </section>

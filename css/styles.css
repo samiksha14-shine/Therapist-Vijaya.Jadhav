@@ -1,19 +1,15 @@
-/* =====================================================
-   RESET
-===================================================== */
+/* ========================= RESET ========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F7F5F2;
+  background: #F7F5F2;
   color: #2F3E34;
   line-height: 1.8;
   padding-top: 100px;
@@ -35,18 +31,16 @@ section {
   padding: 6rem 0;
 }
 
-/* =====================================================
-   PREMIUM NAVIGATION
-===================================================== */
+/* ========================= NAVBAR ========================= */
 .navbar {
   position: fixed;
   width: 100%;
   top: 0;
   background: rgba(247,245,242,0.92);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,0,0,0.05);
   z-index: 1000;
-  padding: 1.4rem 0;
+  padding: 1.3rem 0;
 }
 
 .nav-inner {
@@ -57,15 +51,14 @@ section {
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -73,23 +66,11 @@ section {
   text-decoration: none;
   color: #2F3E34;
   font-weight: 500;
-  position: relative;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #6B8A7A;
-  transition: 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
+.nav-links a:hover {
+  color: #6B8A7A;
 }
 
 .mobile-menu {
@@ -98,48 +79,38 @@ section {
   cursor: pointer;
 }
 
-/* Button */
+/* ========================= BUTTONS ========================= */
 .btn {
   background: #6B8A7A;
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 40px;
+  text-decoration: none;
   font-weight: 500;
-  transition: 0.3s ease;
   display: inline-block;
+  transition: 0.3s;
 }
 
 .btn:hover {
   background: #5B7567;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* ================= PREMIUM NAVBAR ENHANCEMENT ================= */
-
-.navbar.scrolled {
-  background: rgba(255,255,255,0.98);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #6B8A7A;
+  color: #6B8A7A;
 }
 
-.nav-links a {
-  font-size: 0.95rem;
-  letter-spacing: 0.3px;
+.secondary-btn:hover {
+  background: #6B8A7A;
+  color: white;
 }
 
-.logo {
-  transition: 0.3s ease;
-}
-
-.navbar.scrolled .logo {
-  transform: scale(0.95);
-}
-
-/* =====================================================
-   HERO
-===================================================== */
+/* ========================= HERO ========================= */
 .hero {
-  height: 100vh;
-  background: url('../images/photo.jpeg') center/cover no-repeat fixed;
+  min-height: 90vh;
+  background: url('../images/photo.jpeg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,21 +133,25 @@ section {
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
 }
 
 .hero p {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
-/* =====================================================
-   TITLES
-===================================================== */
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========================= TITLES ========================= */
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -188,9 +163,7 @@ section {
   color: #6B7D74;
 }
 
-/* =====================================================
-   GRID
-===================================================== */
+/* ========================= GRID ========================= */
 .grid {
   display: grid;
   gap: 2rem;
@@ -201,81 +174,112 @@ section {
 }
 
 .card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: 0.3s ease;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
-.card h3 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 0.5rem;
+/* ========================= MAP SECTION ========================= */
+.map-section {
+  position: relative;
+  padding: 0;
 }
 
-.card p {
-  color: #6B7D74;
-}
-
-/* =====================================================
-   SERVICES FIX
-===================================================== */
-.service-img {
+.map-section iframe {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 1rem;
-}
-/* ======================================
-   SERVICE IMAGE FIX
-====================================== */
-.service-image {
-  width: 100%;
-  height: 230px;
-  overflow: hidden;
-  border-radius: 16px;
-  margin-bottom: 1.2rem;
+  height: 450px;
+  border: none;
 }
 
-.service-image img {
+.map-overlay-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: #6B8A7A;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  text-decoration: none;
+}
+
+/* ========================= FLIP CARDS ========================= */
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: 0.4s ease;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  padding: 1.5rem;
+  background: white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
 }
 
-.card:hover .service-image img {
-  transform: scale(1.05);
+.flip-front img {
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
-/* =====================================================
-   ABOUT
-===================================================== */
+
+.flip-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ========================= ABOUT ========================= */
 .about-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
-/* =====================================================
-   VIDEO SLIDER FIX
-===================================================== */
+/* ========================= VIDEO SLIDER ========================= */
 .video-slider {
   position: relative;
   max-width: 700px;
   margin: auto;
-  text-align: center;
 }
 
 .video-slider video {
   width: 100%;
-  border-radius: 20px;
 }
 
 .slider-btn {
@@ -288,175 +292,58 @@ section {
   padding: 0.8rem 1rem;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.3s ease;
 }
 
-.slider-btn:hover {
-  background: #5B7567;
-  transform: translateY(-50%) scale(1.1);
-}
+.slider-btn.left { left: -50px; }
+.slider-btn.right { right: -50px; }
 
-.slider-btn.left {
-  left: -60px;
-}
-
-.slider-btn.right {
-  right: -60px;
-}
-
-@media (max-width: 900px) {
-  .slider-btn.left {
-    left: 10px;
-  }
-
-  .slider-btn.right {
-    right: 10px;
-  }
-}
-/* =====================================================
-   CONTACT
-===================================================== */
+/* ========================= CONTACT ========================= */
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
 }
 
-.contact-info,
-.contact-form {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-.contact-info h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1rem;
+.contact-form, .contact-info {
+  background: white;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
 }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
   width: 100%;
-  padding: 1rem;
-  margin-bottom: 1.2rem;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
   border-radius: 12px;
   border: 1px solid #ddd;
-  font-family: inherit;
-  font-size: 0.95rem;
-  transition: 0.3s;
 }
 
 .contact-form select {
-  background-color: #fff;
-  cursor: pointer;
+  appearance: none;
+  background: white;
 }
 
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  border-color: #6B8A7A;
-  outline: none;
-}
-
-.contact-form button {
-  width: 100%;
-  border: none;
-}
-/* ================= CONTACT LEFT PANEL ENHANCEMENT ================= */
-
-.contact-info {
-  background: linear-gradient(135deg, #ffffff, #f1f5f2);
-  border-left: 6px solid #6B8A7A;
-}
-
-.contact-info h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+#typing-text {
+  white-space: pre-line;
   margin-bottom: 1rem;
 }
 
-.contact-info p {
-  margin-bottom: 0.8rem;
-  color: #556d61;
-}
-
-.contact-form select {
-  background: url("data:image/svg+xml,%3Csvg fill='%236B8A7A' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 15px center;
-  background-color: #fff;
-  appearance: none;
-}
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ========================= FOOTER ========================= */
 footer {
   background: #2F3E34;
   color: white;
-  padding: 4rem 0;
+  text-align: center;
+  padding: 2rem 0;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.footer-grid h3 {
-  margin-bottom: 1rem;
-}
-
-.footer-grid ul {
-  list-style: none;
-}
-
-.footer-grid li {
+.footer-content p {
   margin-bottom: 0.5rem;
 }
 
-.footer-grid iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 12px;
-  border: none;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
-/* ================= PREMIUM FOOTER ================= */
-
-footer {
-  background: linear-gradient(135deg, #2F3E34, #3B4F43);
-}
-
-.footer-grid h3 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.footer-grid ul li {
-  font-size: 0.95rem;
-  color: #d9e2dc;
-}
-
-.footer-grid p {
-  color: #d9e2dc;
-  font-size: 0.95rem;
-}
-
-.footer-grid iframe {
-  margin-top: 0.5rem;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ========================= RESPONSIVE ========================= */
 @media (max-width: 900px) {
 
   .about-wrapper,
@@ -464,23 +351,24 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* FORM FIRST ON MOBILE */
+  .contact-form { order: -1; }
+
   .nav-links {
     display: none;
     flex-direction: column;
-    background: white;
     position: absolute;
     top: 80px;
     right: 20px;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
+  .nav-links.active { display: flex; }
 
-  .mobile-menu {
-    display: block;
-  }
+  .mobile-menu { display: block; }
+
+  .slider-btn.left { left: 10px; }
+  .slider-btn.right { right: 10px; }
 }
