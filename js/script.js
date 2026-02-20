@@ -89,55 +89,54 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ===============================
      TYPEWRITER EFFECT (CONTACT PAGE)
   =============================== */
-  const headerEl = document.getElementById("typing-header");
-  const textEl = document.getElementById("typing-text");
-  const fullInfo = document.getElementById("full-info");
+ const headerEl = document.getElementById("typing-header");
+const textEl = document.getElementById("typing-text");
 
-  if (headerEl && textEl && fullInfo) {
+if (headerEl && textEl) {
 
-    const headerText = "Get in Touch";
-    const bodyLines = [
-      "We’d love to hear from you! Reach out for appointments, questions, or just to say hello.",
-      "📧 Vijaya.Jadhav.151075@gmail.com",
-      "📞 (+91) 86928 28066 / 86524 28280",
-      "📍 Sant Rajinder Singh Ashram, Prabhakar Krishanati Patil Marg, Sector 5, Ghansoli, Navi Mumbai, Maharashtra 400701"
-    ];
+  const bodyLines = [
+    "We’d love to hear from you! Reach out for appointments, questions, or just to say hello.",
+    "📧 Vijaya.Jadhav.151075@gmail.com",
+    "📞 (+91) 86928 28066 / 86524 28280",
+    "📍 Sant Rajinder Singh Ashram, Prabhakar Krishanati Patil Marg, Sector 5, Ghansoli, Navi Mumbai, Maharashtra 400701"
+  ];
 
-    function typeLine(element, text, speed = 20) {
-      return new Promise(resolve => {
-        let i = 0;
-        function typing() {
-          if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-          } else {
-            resolve();
-          }
+  function typeLine(text, speed = 20) {
+    return new Promise(resolve => {
+      let i = 0;
+      const p = document.createElement("p");
+      textEl.appendChild(p);
+
+      function typing() {
+        if (i < text.length) {
+          p.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        } else {
+          resolve();
         }
-        typing();
-      });
-    }
-
-    async function startTyping() {
-      headerEl.textContent = "";
-      textEl.textContent = "";
-
-      await typeLine(headerEl, headerText);
-      await new Promise(r => setTimeout(r, 500));
-
-      for (let line of bodyLines) {
-        await typeLine(textEl, line);
-        textEl.textContent += "\n\n";
-        await new Promise(r => setTimeout(r, 400));
       }
 
-      headerEl.style.display = "none";
-      textEl.style.display = "none";
-      fullInfo.style.display = "block";
-    }
-
-    startTyping();
+      typing();
+    });
   }
 
-});
+  async function startTyping() {
+    textEl.innerHTML = "";
+
+    for (let line of bodyLines) {
+      await typeLine(line);
+      await new Promise(r => setTimeout(r, 300));
+    }
+
+    // Add map button after typing
+    const mapBtn = document.createElement("a");
+    mapBtn.href = "https://www.google.com/maps/place/Sant+Rajinder+Singh+Ashram/";
+    mapBtn.target = "_blank";
+    mapBtn.className = "btn";
+    mapBtn.textContent = "See on Map";
+    textEl.appendChild(mapBtn);
+  }
+
+  startTyping();
+}

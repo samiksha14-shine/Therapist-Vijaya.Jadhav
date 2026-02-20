@@ -334,7 +334,15 @@ section {
   white-space: pre-line;
   margin-bottom: 1rem;
 }
+.typing-content p {
+  margin-bottom: 1rem;
+  line-height: 1.9;
+}
 
+.typing-content .btn {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
 /* ========================= FOOTER ========================= */
 footer {
   background: #2F3E34;
