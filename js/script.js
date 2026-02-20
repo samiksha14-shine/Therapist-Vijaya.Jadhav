@@ -125,3 +125,5 @@ if (typingContainer) {
 
   startTyping();
 }
+
+});
