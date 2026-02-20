@@ -1,56 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const items = [
-    "videos/therapy1.mp4",
-    "images/image2.jpeg",
-    "videos/therapy2.mp4",
-    "images/image1.jpeg",
-    "images/image3.jpeg",
-    "videos/therapy3.mp4",
-    "images/image4.jpeg",
-    "images/image5.jpeg"
-  ];
+document.addEventListener("DOMContentLoaded", function () {
 
-  let currentIndex = 0;
+  const mobileMenu = document.getElementById("mobileMenu");
+  const navLinks = document.getElementById("navLinks");
 
-  const videoElement = document.getElementById('carousel-video');
-  const imageElement = document.getElementById('carousel-image');
-  const leftBtn = document.querySelector('.left-btn');
-  const rightBtn = document.querySelector('.right-btn');
-
-  function showCurrent() {
-    const src = items[currentIndex];
-    if (src.endsWith('.mp4')) {
-      videoElement.style.display = 'block';
-      imageElement.style.display = 'none';
-      videoElement.src = src;
-      videoElement.load();
-      videoElement.play();
-    } else {
-      videoElement.pause();
-      videoElement.style.display = 'none';
-      imageElement.style.display = 'block';
-      imageElement.src = src;
-    }
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
   }
 
-  if (videoElement && imageElement && leftBtn && rightBtn) {
-    leftBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      showCurrent();
-    });
-
-    rightBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % items.length;
-      showCurrent();
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden && !videoElement.paused) {
-        videoElement.pause();
+  // Scroll Reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = "fadeUp 1s ease forwards";
       }
     });
+  }, { threshold: 0.2 });
 
-    // show the first media on load
-    showCurrent();
+  document.querySelectorAll(".card, .about-wrapper img, .contact-info, .contact-form")
+    .forEach(el => observer.observe(el));
+
+  // Contact Form
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      const message = document.getElementById("formMessage");
+
+      if (result.success) {
+        message.innerText = "Message sent successfully!";
+        form.reset();
+      } else {
+        message.innerText = "Something went wrong.";
+      }
+    });
   }
+
 });

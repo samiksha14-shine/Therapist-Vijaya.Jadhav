@@ -1,75 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us</title>
-  <link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About | Therapist Vijaya Jadhav</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
+
 <nav class="navbar">
-  <div class="logo">Therapist Vijaya Jadhav</div>
-
-  <!-- Hamburger button -->
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="container nav-inner">
+    <div class="logo">Therapist Vijaya Jadhav</div>
+    <div class="mobile-menu" id="mobileMenu">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn">Book Appointment</a></li>
+    </ul>
   </div>
-
-  <!-- Navigation links -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="nav-btn">Home</a></li>
-    <li><a href="services.html" class="nav-btn">Services</a></li>
-    <li><a href="about.html" class="nav-btn">About</a></li>
-    <li><a href="contact.html" class="nav-btn">Contact</a></li>
-  </ul>
 </nav>
 
-
-  <section class="about">
-    <img src="images/photo.jpeg" alt="Therapist" />
-    <div class="bio">
-      <h2>Therapist Vijaya Jadhav</h2>
-      <p><i>"I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability to heal and restore balance. Using a variety of traditional and modern techniques, I work with each client to create a personalized treatment plan that promotes relaxation, pain relief, and overall wellness. My approach is rooted in professional training and certification, ensuring safe and effective care for every individual seeking natural healing and rejuvenation."</i></p>
-      <a href="contact.html" class="btn">Contact Therapist</a>
+<section>
+  <div class="container about-wrapper">
+    <img src="images/photo.jpeg" alt="Therapist">
+    <div>
+      <h2 class="section-title">Therapist Vijaya Jadhav</h2>
+      <p>"I am a licensed holistic therapy practitioner dedicated to supporting your body’s natural ability to heal and restore balance. Using a variety of traditional and modern techniques, I work with each client to create a personalized treatment plan that promotes relaxation, pain relief, and overall wellness."</p>
     </div>
-  </section>
-
- <section class="therapist-videos">
-  <h3>Healing Moments</h3>
-  <p class="video-description">Visual stories of therapy sessions that bring comfort, relief, and wellness to our clients.</p>
-
-  <div class="video-carousel">
-  <button class="carousel-btn left-btn" aria-label="Previous Video">&#9664;</button>
-  
-  <div class="video-wrapper">
-     <img id="carousel-image" style="display:none;"/>
-    <video id="carousel-video" controls src="videos/therapy1.mp4"></video>
   </div>
-  
-  <button class="carousel-btn right-btn" aria-label="Next Video">&#9654;</button>
-</div>  
 </section>
 
+<section>
+  <div class="container">
+    <h2 class="section-title">Healing Moments</h2>
+    <div class="video-grid">
+      <video src="videos/therapy1.mp4" controls></video>
+      <video src="videos/therapy2.mp4" controls></video>
+      <video src="videos/therapy3.mp4" controls></video>
+    </div>
+  </div>
+</section>
 
-<footer class="site-footer" style="padding: 1rem; background:#c5dedd; text-align:center; font-size: 0.9rem; color: #51667a;">
-  <p style="margin: 0;">
-  <a href="Vijaya.Jadhav.151075@gmail.com" style="color: #51667a; text-decoration: none;">Vijaya.Jadhav.151075@gmail.com</a> | 
-    (+91) 8692828066 / 8652428280 | 
-    Sant Rajinder Singh Ashram, Ghansoli, Navi Mumbai | 
-    &copy; 2025 Samiksha Shinde. All rights reserved.
-  </p>
+<footer>
+  <div class="container">
+    <p>© 2025 Vijaya Jadhav</p>
+  </div>
 </footer>
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
-
- <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
