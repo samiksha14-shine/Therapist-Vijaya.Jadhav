@@ -54,30 +54,13 @@ if (sliderVideo) {
   /* ===============================
      CONTACT FORM SUBMISSION
   =============================== */
-// MAKE CLOSE POPUP GLOBAL
-const popup = document.getElementById("popupModal");
-const popupCloseBtn = document.getElementById("popupCloseBtn");
-
-if (popupCloseBtn) {
-  popupCloseBtn.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
-}
-
-if (popup) {
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("contactForm");
   const popup = document.getElementById("popupModal");
   const popupMessage = document.getElementById("popupMessage");
   const popupBox = document.querySelector(".popup-box");
+  const popupCloseBtn = document.getElementById("popupCloseBtn");
 
   function showPopup(message, type) {
     popupMessage.textContent = message;
@@ -86,6 +69,25 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = "flex";
   }
 
+  function closePopup() {
+    popup.style.display = "none";
+  }
+
+  // Close button click
+  if (popupCloseBtn) {
+    popupCloseBtn.addEventListener("click", closePopup);
+  }
+
+  // Click outside popup closes it
+  if (popup) {
+    popup.addEventListener("click", function (e) {
+      if (e.target === popup) {
+        closePopup();
+      }
+    });
+  }
+
+  // Form submission
   if (form) {
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
