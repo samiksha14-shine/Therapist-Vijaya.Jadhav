@@ -339,21 +339,14 @@ section {
   line-height: 1.9;
 }
 
+.typing-content a {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
 .typing-content .btn {
   margin-top: 1.5rem;
   display: inline-block;
-}
-.typing-content p,
-.typing-content a {
-  opacity: 0;
-  margin-bottom: 1rem;
-  line-height: 1.9;
-  transition: opacity 0.3s ease;
-}
-
-.typing-content a {
-  display: inline-block;
-  margin-top: 1.5rem;
 }
 /* ========================= FOOTER ========================= */
 footer {

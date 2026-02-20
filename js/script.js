@@ -93,12 +93,11 @@ const typingContainer = document.getElementById("typing-content");
 
 if (typingContainer) {
 
-  const elements = typingContainer.querySelectorAll("p, a");
+  const elements = typingContainer.querySelectorAll("p");
 
-  async function typeElement(el, speed = 15) {
+  async function typeElement(el, speed = 18) {
     const text = el.textContent;
     el.textContent = "";
-    el.style.opacity = "1";
 
     for (let i = 0; i < text.length; i++) {
       el.textContent += text.charAt(i);
@@ -109,7 +108,7 @@ if (typingContainer) {
   async function startTyping() {
     for (let el of elements) {
       await typeElement(el);
-      await new Promise(r => setTimeout(r, 250));
+      await new Promise(r => setTimeout(r, 300));
     }
   }
 
