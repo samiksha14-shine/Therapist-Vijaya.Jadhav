@@ -327,9 +327,10 @@ section {
 
 .contact-form select {
   appearance: none;
-  background: white;
+  background: white url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>") no-repeat right 15px center;
+  background-size: 16px;
+  cursor: pointer;
 }
-
 #typing-text {
   white-space: pre-line;
   margin-bottom: 1rem;

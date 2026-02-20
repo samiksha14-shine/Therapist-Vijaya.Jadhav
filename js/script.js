@@ -54,37 +54,41 @@ if (sliderVideo) {
   /* ===============================
      CONTACT FORM SUBMISSION
   =============================== */
-  const form = document.getElementById("contactForm");
+const form = document.getElementById("contactForm");
 
-  if (form) {
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+if (form) {
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      const formData = new FormData(form);
-      const message = document.getElementById("formMessage");
+    const formData = new FormData(form);
+    const message = document.getElementById("formMessage");
 
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
+    message.textContent = "Sending...";
+    message.style.color = "#555";
 
-        const result = await response.json();
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-        if (result.success) {
-          message.textContent = "Message sent successfully!";
-          message.style.color = "green";
-          form.reset();
-        } else {
-          message.textContent = "Something went wrong. Please try again.";
-          message.style.color = "red";
-        }
-      } catch (error) {
-        message.textContent = "Error submitting form.";
+      const result = await response.json();
+
+      if (result.success) {
+        message.textContent = "Appointment request sent successfully!";
+        message.style.color = "green";
+        form.reset();
+      } else {
+        message.textContent = "Something went wrong. Please try again.";
         message.style.color = "red";
       }
-    });
-  }
+
+    } catch (error) {
+      message.textContent = "Error submitting form.";
+      message.style.color = "red";
+    }
+  });
+}
 
   /* ===============================
      TYPEWRITER EFFECT (CONTACT PAGE)
