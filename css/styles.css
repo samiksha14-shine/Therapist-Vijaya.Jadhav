@@ -110,7 +110,7 @@ section {
 /* ========================= HERO ========================= */
 .hero {
   min-height: 90vh;
-  background: url('../images/photo.jpeg') center/cover no-repeat;
+  background: url('../images/hero-back.jpeg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,6 +342,18 @@ section {
 .typing-content .btn {
   margin-top: 1.5rem;
   display: inline-block;
+}
+.typing-content p,
+.typing-content a {
+  opacity: 0;
+  margin-bottom: 1rem;
+  line-height: 1.9;
+  transition: opacity 0.3s ease;
+}
+
+.typing-content a {
+  display: inline-block;
+  margin-top: 1.5rem;
 }
 /* ========================= FOOTER ========================= */
 footer {
