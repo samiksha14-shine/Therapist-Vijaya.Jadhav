@@ -114,6 +114,26 @@ section {
   transform: translateY(-3px);
 }
 
+/* ================= PREMIUM NAVBAR ENHANCEMENT ================= */
+
+.navbar.scrolled {
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.logo {
+  transition: 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+  transform: scale(0.95);
+}
+
 /* =====================================================
    HERO
 ===================================================== */
@@ -265,15 +285,36 @@ section {
   background: #6B8A7A;
   color: white;
   border: none;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1rem;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
 }
 
-.slider-btn.left { left: -50px; }
-.slider-btn.right { right: -50px; }
+.slider-btn:hover {
+  background: #5B7567;
+  transform: translateY(-50%) scale(1.1);
+}
 
+.slider-btn.left {
+  left: -60px;
+}
+
+.slider-btn.right {
+  right: -60px;
+}
+
+@media (max-width: 900px) {
+  .slider-btn.left {
+    left: 10px;
+  }
+
+  .slider-btn.right {
+    right: 10px;
+  }
+}
 /* =====================================================
    CONTACT
 ===================================================== */
@@ -325,7 +366,29 @@ section {
   width: 100%;
   border: none;
 }
+/* ================= CONTACT LEFT PANEL ENHANCEMENT ================= */
 
+.contact-info {
+  background: linear-gradient(135deg, #ffffff, #f1f5f2);
+  border-left: 6px solid #6B8A7A;
+}
+
+.contact-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.8rem;
+  color: #556d61;
+}
+
+.contact-form select {
+  background: url("data:image/svg+xml,%3Csvg fill='%236B8A7A' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 15px center;
+  background-color: #fff;
+  appearance: none;
+}
 /* =====================================================
    FOOTER
 ===================================================== */
@@ -365,7 +428,32 @@ footer {
   margin-top: 2rem;
   font-size: 0.9rem;
 }
+/* ================= PREMIUM FOOTER ================= */
 
+footer {
+  background: linear-gradient(135deg, #2F3E34, #3B4F43);
+}
+
+.footer-grid h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-grid ul li {
+  font-size: 0.95rem;
+  color: #d9e2dc;
+}
+
+.footer-grid p {
+  color: #d9e2dc;
+  font-size: 0.95rem;
+}
+
+.footer-grid iframe {
+  margin-top: 0.5rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -395,7 +483,4 @@ footer {
   .mobile-menu {
     display: block;
   }
-
-  .slider-btn.left { left: 10px; }
-  .slider-btn.right { right: 10px; }
 }
