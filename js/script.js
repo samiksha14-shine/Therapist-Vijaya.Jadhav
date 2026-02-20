@@ -17,45 +17,43 @@ document.addEventListener("DOMContentLoaded", function () {
   =============================== */
   const navbar = document.querySelector(".navbar");
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
-      navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.08)";
-    } else {
-      navbar.style.boxShadow = "none";
-    }
-  });
+  if (navbar) {
+    window.addEventListener("scroll", function () {
+      navbar.style.boxShadow =
+        window.scrollY > 50
+          ? "0 10px 30px rgba(0,0,0,0.08)"
+          : "none";
+    });
+  }
 
   /* ===============================
-     VIDEO SLIDER (ABOUT PAGE)
+     VIDEO SLIDER
   =============================== */
-const sliderVideo = document.getElementById("sliderVideo");
+  const sliderVideo = document.getElementById("sliderVideo");
 
-if (sliderVideo) {
+  if (sliderVideo) {
+    const videos = [
+      "videos/therapy1.mp4",
+      "videos/therapy2.mp4",
+      "videos/therapy3.mp4"
+    ];
 
-  const videos = [
-    "videos/therapy1.mp4",
-    "videos/therapy2.mp4",
-    "videos/therapy3.mp4"
-  ];
+    let currentVideo = 0;
 
-  let currentVideo = 0;
+    window.nextVideo = function () {
+      currentVideo = (currentVideo + 1) % videos.length;
+      sliderVideo.src = videos[currentVideo];
+    };
 
-  window.nextVideo = function () {
-    currentVideo = (currentVideo + 1) % videos.length;
-    sliderVideo.src = videos[currentVideo];
-  };
-
-  window.prevVideo = function () {
-    currentVideo = (currentVideo - 1 + videos.length) % videos.length;
-    sliderVideo.src = videos[currentVideo];
-  };
-}
+    window.prevVideo = function () {
+      currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+      sliderVideo.src = videos[currentVideo];
+    };
+  }
 
   /* ===============================
-     CONTACT FORM SUBMISSION
+     CONTACT FORM + POPUP
   =============================== */
-document.addEventListener("DOMContentLoaded", function () {
-
   const form = document.getElementById("contactForm");
   const popup = document.getElementById("popupModal");
   const popupMessage = document.getElementById("popupMessage");
@@ -63,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupCloseBtn = document.getElementById("popupCloseBtn");
 
   function showPopup(message, type) {
+    if (!popup) return;
     popupMessage.textContent = message;
     popupBox.classList.remove("success", "error");
     popupBox.classList.add(type);
@@ -70,26 +69,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closePopup() {
-    popup.style.display = "none";
+    if (popup) popup.style.display = "none";
   }
 
-  // Close button click
   if (popupCloseBtn) {
     popupCloseBtn.addEventListener("click", closePopup);
   }
 
-  // Click outside popup closes it
   if (popup) {
     popup.addEventListener("click", function (e) {
-      if (e.target === popup) {
-        closePopup();
-      }
+      if (e.target === popup) closePopup();
     });
   }
 
-  // Form submission
   if (form) {
-    form.addEventListener("submit", async function(e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const formData = new FormData(form);
@@ -108,42 +102,37 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           showPopup("Something went wrong. Please try again.", "error");
         }
-
       } catch (error) {
         showPopup("Network error. Please try again later.", "error");
       }
     });
   }
 
-});
-
   /* ===============================
-     TYPEWRITER EFFECT (CONTACT PAGE)
+     TYPEWRITER EFFECT
   =============================== */
-const typingContainer = document.getElementById("typing-content");
+  const typingContainer = document.getElementById("typing-content");
 
-if (typingContainer) {
+  if (typingContainer) {
+    const elements = typingContainer.querySelectorAll("p");
 
-  const elements = typingContainer.querySelectorAll("p");
-
-  async function typeElement(el, speed = 18) {
-    const text = el.textContent;
-    el.textContent = "";
-
-    for (let i = 0; i < text.length; i++) {
-      el.textContent += text.charAt(i);
-      await new Promise(r => setTimeout(r, speed));
+    async function typeElement(el, speed = 18) {
+      const text = el.textContent;
+      el.textContent = "";
+      for (let i = 0; i < text.length; i++) {
+        el.textContent += text.charAt(i);
+        await new Promise(r => setTimeout(r, speed));
+      }
     }
-  }
 
-  async function startTyping() {
-    for (let el of elements) {
-      await typeElement(el);
-      await new Promise(r => setTimeout(r, 300));
+    async function startTyping() {
+      for (let el of elements) {
+        await typeElement(el);
+        await new Promise(r => setTimeout(r, 300));
+      }
     }
-  }
 
-  startTyping();
-}
+    startTyping();
+  }
 
 });
