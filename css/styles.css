@@ -133,7 +133,7 @@ section {
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 1.2rem;
 }
 
@@ -170,7 +170,10 @@ section {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .card {
@@ -180,6 +183,7 @@ section {
   box-shadow: 0 15px 30px rgba(0,0,0,0.05);
   transition: 0.3s;
   text-align: center;
+  width: 260px;
 }
 
 .card img {
@@ -218,7 +222,7 @@ section {
 /* ========================= FLIP CARDS ========================= */
 .flip-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 2rem;
 }
 
@@ -250,7 +254,7 @@ section {
 }
 
 .flip-front img {
-  height: 180px;
+  height: 275px;
   object-fit: cover;
   margin-bottom: 1rem;
 }
