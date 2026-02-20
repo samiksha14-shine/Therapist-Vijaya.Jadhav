@@ -55,16 +55,26 @@ if (sliderVideo) {
      CONTACT FORM SUBMISSION
   =============================== */
 const form = document.getElementById("contactForm");
+const popup = document.getElementById("popupModal");
+const popupMessage = document.getElementById("popupMessage");
+const popupBox = document.querySelector(".popup-box");
+
+function showPopup(message, type) {
+  popupMessage.textContent = message;
+  popupBox.classList.remove("success", "error");
+  popupBox.classList.add(type);
+  popup.style.display = "flex";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
 
 if (form) {
   form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const formData = new FormData(form);
-    const message = document.getElementById("formMessage");
-
-    message.textContent = "Sending...";
-    message.style.color = "#555";
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -75,17 +85,14 @@ if (form) {
       const result = await response.json();
 
       if (result.success) {
-        message.textContent = "Appointment request sent successfully!";
-        message.style.color = "green";
+        showPopup("Your appointment request has been sent successfully!", "success");
         form.reset();
       } else {
-        message.textContent = "Something went wrong. Please try again.";
-        message.style.color = "red";
+        showPopup("Something went wrong. Please try again.", "error");
       }
 
     } catch (error) {
-      message.textContent = "Error submitting form.";
-      message.style.color = "red";
+      showPopup("Network error. Please try again later.", "error");
     }
   });
 }
