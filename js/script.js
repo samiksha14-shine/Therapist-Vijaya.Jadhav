@@ -54,48 +54,56 @@ if (sliderVideo) {
   /* ===============================
      CONTACT FORM SUBMISSION
   =============================== */
-const form = document.getElementById("contactForm");
-const popup = document.getElementById("popupModal");
-const popupMessage = document.getElementById("popupMessage");
-const popupBox = document.querySelector(".popup-box");
-
-function showPopup(message, type) {
-  popupMessage.textContent = message;
-  popupBox.classList.remove("success", "error");
-  popupBox.classList.add(type);
-  popup.style.display = "flex";
-}
-
+// MAKE CLOSE POPUP GLOBAL
 function closePopup() {
-  popup.style.display = "none";
+  const popup = document.getElementById("popupModal");
+  if (popup) {
+    popup.style.display = "none";
+  }
 }
 
-if (form) {
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-    const formData = new FormData(form);
+  const form = document.getElementById("contactForm");
+  const popup = document.getElementById("popupModal");
+  const popupMessage = document.getElementById("popupMessage");
+  const popupBox = document.querySelector(".popup-box");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+  function showPopup(message, type) {
+    popupMessage.textContent = message;
+    popupBox.classList.remove("success", "error");
+    popupBox.classList.add(type);
+    popup.style.display = "flex";
+  }
 
-      const result = await response.json();
+  if (form) {
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-      if (result.success) {
-        showPopup("Your appointment request has been sent successfully!", "success");
-        form.reset();
-      } else {
-        showPopup("Something went wrong. Please try again.", "error");
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          showPopup("Your appointment request has been sent successfully!", "success");
+          form.reset();
+        } else {
+          showPopup("Something went wrong. Please try again.", "error");
+        }
+
+      } catch (error) {
+        showPopup("Network error. Please try again later.", "error");
       }
+    });
+  }
 
-    } catch (error) {
-      showPopup("Network error. Please try again later.", "error");
-    }
-  });
-}
+});
 
   /* ===============================
      TYPEWRITER EFFECT (CONTACT PAGE)
